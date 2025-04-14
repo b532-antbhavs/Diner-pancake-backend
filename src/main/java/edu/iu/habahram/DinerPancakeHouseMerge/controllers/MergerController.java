@@ -1,44 +1,41 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.controllers;
 
+import edu.iu.habahram.DinerPancakeHouseMerge.model.Menu;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
-import edu.iu.habahram.DinerPancakeHouseMerge.model.DinerMenu;
-import edu.iu.habahram.DinerPancakeHouseMerge.model.PancakeHouseMenu;
+import edu.iu.habahram.DinerPancakeHouseMerge.repository.MergerRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/merger")
 public class MergerController {
 
-    private final DinerMenu dinerMenu;
-    private final PancakeHouseMenu pancakeHouseMenu;
+    MergerRepository mergerRepository;
 
     public MergerController() {
-        this.dinerMenu = new DinerMenu();
-        this.pancakeHouseMenu = new PancakeHouseMenu();
+        this.mergerRepository = mergerRepository;;
     }
 
     @GetMapping
     public List<MenuItem> getMergedMenu() {
-        // Convert DinerMenu array to List
-        List<MenuItem> dinerItems = Arrays.asList(dinerMenu.getMenuItems());
-
-        // Get PancakeHouseMenu items (already a List)
-        List<MenuItem> pancakeItems = pancakeHouseMenu.getMenuItems();
-
-        // Merge and sort menu items by name
-        return Stream.concat(dinerItems.stream(), pancakeItems.stream())
-                .sorted((a, b) -> a.getName().compareToIgnoreCase(b.getName())) // Sorting alphabetically
-                .collect(Collectors.toList());
+        List<MenuItem> menuItems = new ArrayList<>();
+        Iterator<Menu> menuIterator = mergerRepository.getTheMenus().iterator();
+        while (menuIterator.hasNext()) {
+            Menu menu = menuIterator.next();
+            Iterator<MenuItem> iterator = menu.createIterator();
+            while(iterator.hasNext()) {
+                MenuItem menuItem = iterator.next();
+                menuItems.add(menuItem);
+            }
+        }
+        return menuItems;
     }
-
 }
 

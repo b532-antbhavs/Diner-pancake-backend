@@ -59,7 +59,10 @@ public class DinerMenu implements Menu {
 //        return res.iterator();
 
 //        TYPE 2 Implementation
-        return hashmap.values().iterator();
+        return new DinerMenuIterator(getMenuItems());
+
+//        TYPE 3 Implementation
+//        return hashmap.values().iterator();
     }
 
     // other menu methods here
