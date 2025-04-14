@@ -39,5 +39,6 @@ public class MergerController {
                 .sorted((a, b) -> a.getName().compareToIgnoreCase(b.getName())) // Sorting alphabetically
                 .collect(Collectors.toList());
     }
+
 }
 

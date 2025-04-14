@@ -55,6 +55,6 @@ public class PancakeHouseMenu {
     // other menu methods here
 
     public Iterator<MenuItem> createIterator() {
-        return new PancakeHouseIterator(menuItems);
+        return MenuItem.iterator();
     }
 }

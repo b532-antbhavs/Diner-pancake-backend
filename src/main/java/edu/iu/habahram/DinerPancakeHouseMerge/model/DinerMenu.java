@@ -1,9 +1,12 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
-public class DinerMenu {
+import java.util.*;
+
+public class DinerMenu implements Menu {
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
     MenuItem[] menuItems;
+    Map<String, MenuItem> hashmap = new HashMap<>();
 
     public DinerMenu() {
         menuItems = new MenuItem[MAX_ITEMS];
@@ -33,6 +36,7 @@ public class DinerMenu {
         } else {
             menuItems[numberOfItems] = menuItem;
             numberOfItems = numberOfItems + 1;
+            hashmap.put(name, menuItem);
         }
     }
 
@@ -48,5 +52,15 @@ public class DinerMenu {
         return  stringBuilder.toString();
     }
 
-      // other menu methods here
+    @Override
+    public Iterator<MenuItem> createIterator() {
+//        TYPE 1 Implemntation
+//        List<MenuItem> res = Arrays.asList(getMenuItems());
+//        return res.iterator();
+
+//        TYPE 2 Implementation
+        return hashmap.values().iterator();
+    }
+
+    // other menu methods here
 }

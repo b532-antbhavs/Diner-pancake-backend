@@ -1,5 +1,7 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
+import java.util.Iterator;
+
 public class MenuItem {
     String name;
     String description;
