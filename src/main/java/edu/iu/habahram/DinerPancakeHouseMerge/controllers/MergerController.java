@@ -1,7 +1,6 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.controllers;
 
-import edu.iu.habahram.DinerPancakeHouseMerge.model.Menu;
-import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
+import edu.iu.habahram.DinerPancakeHouseMerge.model.*;
 import edu.iu.habahram.DinerPancakeHouseMerge.repository.MergerRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +22,14 @@ public class MergerController {
         this.mergerRepository = mergerRepository;;
     }
 
-    @GetMapping
-    public List<MenuItem> getMergedMenu() {
-        List<MenuItem> menuItems = new ArrayList<>();
+
+    public  ArrayList<MenuItem> getTheMenus() {
+//        ArrayList<Menu> menus = new ArrayList<>();
+//        menus.add(new DinerMenu());
+//        menus.add(new PancakeHouseMenu());
+//        menus.add(new CafeMenu());
+//        return menus;
+        ArrayList<MenuItem> menuItems = new ArrayList<>();
         Iterator<Menu> menuIterator = mergerRepository.getTheMenus().iterator();
         while (menuIterator.hasNext()) {
             Menu menu = menuIterator.next();
