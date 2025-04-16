@@ -10,7 +10,7 @@ import java.util.List;
 public class DinerRepository {
 
 //    public MenuItem[] getTheMenu() {
-////        DinerMenu dinerMenu = new DinerMenu();
-////        return dinerMenu.getItems();
+//        DinerMenu dinerMenu = new DinerMenu();
+//        return dinerMenu.getItems();
 //    }
 }

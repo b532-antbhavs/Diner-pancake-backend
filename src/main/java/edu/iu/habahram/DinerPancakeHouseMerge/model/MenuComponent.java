@@ -29,7 +29,4 @@ public abstract class MenuComponent {
     public MenuItem[] getItems() {
         throw new UnsupportedOperationException();
     }
-
-    public Iterator<MenuItem> createIterator() {
-    }
 }

@@ -7,7 +7,7 @@ import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import java.util.Iterator;
 
 public class CafeRepository {
-    public Iterator<MenuItem> getTheMenuIterator() {
-        Menu cafe = new CafeMenu();
-    }
+//    public Iterator<MenuItem> getTheMenuIterator() {
+//        Menu cafe = new CafeMenu();
+//    }
 }

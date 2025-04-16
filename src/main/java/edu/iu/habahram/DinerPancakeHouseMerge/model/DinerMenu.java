@@ -1,12 +1,12 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
-import java.util.*;
-
-public class DinerMenu extends Menu{
-
+public class DinerMenu extends Menu {
     public DinerMenu(String name, String description) {
         super(name, description);
+        addDefaultItems();
+    }
 
+    private void addDefaultItems() {
         addItem("Vegetarian BLT",
                 "(Fakin') Bacon with lettuce & tomato on whole wheat", true, 2.99);
         addItem("BLT",
@@ -23,17 +23,8 @@ public class DinerMenu extends Menu{
                 true, 3.89);
     }
 
-
     public void addItem(String name, String description,
-                        boolean vegetarian, double price)
-    {
-        MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
-        add(menuItem);
+                        boolean vegetarian, double price) {
+        add(new MenuItem(name, description, vegetarian, price));
     }
-    public MenuItem[] getItem() {
-        return super.getItems();
-    }
-
-
-    // other menu methods here
 }

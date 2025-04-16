@@ -1,13 +1,12 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
 public class CafeMenu extends Menu {
-
     public CafeMenu(String name, String description) {
         super(name, description);
+        addDefaultItems();
+    }
+
+    private void addDefaultItems() {
         addItem("Veggie Burger and Air Fries",
                 "Veggie burger on a whole wheat bun, lettuce, tomato, and fries",
                 true, 3.99);
@@ -20,13 +19,7 @@ public class CafeMenu extends Menu {
     }
 
     public void addItem(String name, String description,
-                        boolean vegetarian, double price)
-    {
-        MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
+                        boolean vegetarian, double price) {
+        add(new MenuItem(name, description, vegetarian, price));
     }
-
-    public MenuItem[] getItems() {
-        return super.getItems();
-    }
-
 }

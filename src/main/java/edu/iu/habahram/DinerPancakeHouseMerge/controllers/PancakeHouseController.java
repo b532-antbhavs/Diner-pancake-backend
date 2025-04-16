@@ -17,28 +17,28 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/pancakehouse")
 public class PancakeHouseController {
-    PancakeHouseRepository repository;
-
-    public PancakeHouseController(PancakeHouseRepository repository) {
-        this.repository = repository;
-    }
-
-    @GetMapping
-    public MenuItem[] get() {
-        return repository.getTheMenu();
-    }
-
-    @GetMapping
-    public List<MenuItem> get() {
-        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-
-        Iterator<MenuItem> iterator = pancakeHouseMenu.createIterator();
-
-        List<MenuItem> menuItems = new ArrayList<>();
-
-        while (iterator.hasNext()) {
-            menuItems.add(iterator.next());
-        }
-        return menuItems;
-    }
+//    PancakeHouseRepository repository;
+//
+//    public PancakeHouseController(PancakeHouseRepository repository) {
+//        this.repository = repository;
+//    }
+//
+//    @GetMapping
+//    public MenuItem[] get() {
+//        return repository.getTheMenu();
+//    }
+//
+//    @GetMapping
+//    public List<MenuItem> get() {
+//        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+//
+//        Iterator<MenuItem> iterator = pancakeHouseMenu.createIterator();
+//
+//        List<MenuItem> menuItems = new ArrayList<>();
+//
+//        while (iterator.hasNext()) {
+//            menuItems.add(iterator.next());
+//        }
+//        return menuItems;
+//    }
 }

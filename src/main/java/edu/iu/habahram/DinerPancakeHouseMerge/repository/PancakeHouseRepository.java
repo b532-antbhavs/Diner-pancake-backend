@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public class PancakeHouseRepository {
-    public MenuItem[] getTheMenu() {
-        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-        return pancakeHouseMenu.getItems();
-    }
+//    public MenuItem[] getTheMenu() {
+//        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+//        return pancakeHouseMenu.getItems();
+//    }
 }
