@@ -18,28 +18,14 @@ public class MergerController {
 
     MergerRepository mergerRepository;
 
-    public MergerController() {
-        this.mergerRepository = mergerRepository;;
+    public MergerController(MergerRepository mergerRepository) {
+        this.mergerRepository = mergerRepository;
     }
 
-
-    public  ArrayList<MenuItem> getTheMenus() {
-//        ArrayList<Menu> menus = new ArrayList<>();
-//        menus.add(new DinerMenu());
-//        menus.add(new PancakeHouseMenu());
-//        menus.add(new CafeMenu());
-//        return menus;
-        ArrayList<MenuItem> menuItems = new ArrayList<>();
-        Iterator<Menu> menuIterator = mergerRepository.getTheMenus().iterator();
-        while (menuIterator.hasNext()) {
-            Menu menu = menuIterator.next();
-            Iterator<MenuItem> iterator = menu.createIterator();
-            while(iterator.hasNext()) {
-                MenuItem menuItem = iterator.next();
-                menuItems.add(menuItem);
-            }
-        }
-        return menuItems;
+    @GetMapping
+    public List<MenuItemRecord> get() {
+        List<MenuItemRecord> items = mergerRepository.getTheMenuItems();
+        return items;
     }
 }
 

@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public class DinerRepository {
 
-    public MenuItem[] getTheMenu() {
-        DinerMenu dinerMenu = new DinerMenu();
-        return dinerMenu.getMenuItems();
-    }
+//    public MenuItem[] getTheMenu() {
+////        DinerMenu dinerMenu = new DinerMenu();
+////        return dinerMenu.getItems();
+//    }
 }

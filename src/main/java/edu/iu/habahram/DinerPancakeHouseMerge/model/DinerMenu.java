@@ -2,14 +2,10 @@ package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
 import java.util.*;
 
-public class DinerMenu implements Menu {
-    static final int MAX_ITEMS = 6;
-    int numberOfItems = 0;
-    MenuItem[] menuItems;
-    Map<String, MenuItem> hashmap = new HashMap<>();
+public class DinerMenu extends Menu{
 
-    public DinerMenu() {
-        menuItems = new MenuItem[MAX_ITEMS];
+    public DinerMenu(String name, String description) {
+        super(name, description);
 
         addItem("Vegetarian BLT",
                 "(Fakin') Bacon with lettuce & tomato on whole wheat", true, 2.99);
@@ -27,43 +23,17 @@ public class DinerMenu implements Menu {
                 true, 3.89);
     }
 
+
     public void addItem(String name, String description,
                         boolean vegetarian, double price)
     {
         MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
-        if (numberOfItems >= MAX_ITEMS) {
-            System.err.println("Sorry, menu is full!  Can't add item to menu");
-        } else {
-            menuItems[numberOfItems] = menuItem;
-            numberOfItems = numberOfItems + 1;
-            hashmap.put(name, menuItem);
-        }
+        add(menuItem);
+    }
+    public MenuItem[] getItem() {
+        return super.getItems();
     }
 
-    public MenuItem[] getMenuItems() {
-        return menuItems;
-    }
-
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for(MenuItem item: getMenuItems()) {
-            stringBuilder.append(item.toString());
-        }
-        return  stringBuilder.toString();
-    }
-
-    @Override
-    public Iterator<MenuItem> createIterator() {
-//        TYPE 1 Implemntation
-//        List<MenuItem> res = Arrays.asList(getMenuItems());
-//        return res.iterator();
-
-//        TYPE 2 Implementation
-        return new DinerMenuIterator(getMenuItems());
-
-//        TYPE 3 Implementation
-//        return hashmap.values().iterator();
-    }
 
     // other menu methods here
 }

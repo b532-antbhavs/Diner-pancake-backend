@@ -23,10 +23,10 @@ public class PancakeHouseController {
         this.repository = repository;
     }
 
-//    @GetMapping
-//    public List<MenuItem> get() {
-//        return repository.getTheMenu();
-//    }
+    @GetMapping
+    public MenuItem[] get() {
+        return repository.getTheMenu();
+    }
 
     @GetMapping
     public List<MenuItem> get() {
