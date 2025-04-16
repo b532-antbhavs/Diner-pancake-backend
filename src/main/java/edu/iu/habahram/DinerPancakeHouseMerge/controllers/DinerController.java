@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/diner")
 public class DinerController {
 
-    DinerRepository repository;
-
-    public DinerController(DinerRepository repository) {
-        this.repository = repository;
-    }
-
-    @GetMapping
-    public MenuItem[] get() {
-        return repository.getTheMenu();
-    }
+//    DinerRepository repository;
+//
+//    public DinerController(DinerRepository repository) {
+//        this.repository = repository;
+//    }
+//
+//    @GetMapping
+//    public MenuItem[] get() {
+//        return repository.get();
+//    }
 }
