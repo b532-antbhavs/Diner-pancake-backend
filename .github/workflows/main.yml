@@ -37,10 +37,10 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ github.actor }}
+          username: antbhavs
           password: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Build and push the Docker image
         run: |
-          docker build --platform linux/amd64 -t docker.io/${{ github.actor }}/diner-pancake-backend:latest .
-          docker push docker.io/${{ github.actor }}/diner-pancake-backend:latest
+          docker build --platform linux/amd64 -t docker.io/antbhavs/diner-pancake-backend:latest .
+          docker push docker.io/antbhavs/diner-pancake-backend:latest
