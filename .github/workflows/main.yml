@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'adoptopenjdk'
+          distribution: 'temurin'  # ✅ use temurin instead of deprecated adoptopenjdk
 
       - name: Build the package
         run: mvn --batch-mode -DskipTests package
@@ -42,5 +42,5 @@ jobs:
 
       - name: Build and push the Docker image
         run: |
-          docker build -t docker.io/${{github.actor }}/diner-pancake-backend:latest .
-          docker push docker.io/${{github.actor }}/diner-pancake-backend:latest
+          docker build --platform linux/amd64 -t docker.io/${{ github.actor }}/diner-pancake-backend:latest .
+          docker push docker.io/${{ github.actor }}/diner-pancake-backend:latest
