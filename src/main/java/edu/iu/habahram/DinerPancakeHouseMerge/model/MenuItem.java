@@ -7,12 +7,10 @@ public class MenuItem extends MenuComponent{
     String description;
     boolean vegetarian;
     double price;
+    private String menuName;
 
-    public MenuItem(String name,
-                    String description,
-                    boolean vegetarian,
-                    double price)
-    {
+
+    public MenuItem(String name, String description, boolean vegetarian, double price) {
         this.name = name;
         this.description = description;
         this.vegetarian = vegetarian;
@@ -42,7 +40,16 @@ public class MenuItem extends MenuComponent{
         items[0] = this;
         return items;
     }
-//    public Iterator<MenuItem> createIterator() {
-//        return new NullIerator
-//    }
+    @Override
+    public Iterator<MenuComponent> createIterator() {
+        return java.util.Collections.emptyIterator();
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
+    }
+
+    public String getMenuName() {
+        return menuName;
+    }
 }
